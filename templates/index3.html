@@ -8,7 +8,7 @@
  <br>
 </div>
 <div class="wrap-input3 validate-input form-group">
-  <input class="input2 form-control" type="text" id="newfilePath" name="Description" placeholder="Test Description" required><br>
+  <input class="input2 form-control" type="text" id="newfilePath" name="Description" placeholder="Test Description"><br>
   <!---- <label for="newfilePath">Enter new File Path: </label><br> -->
  </div>
 <div class="wrap-input3 validate-input">
@@ -42,13 +42,13 @@
 </form>
 
 <script type="text/javascript" language="javascript">
-$('#filePath, #newfilePath').bind('change', function() {
-  $('#btn').removeAttr('disabled');
-});
+ $('#filePath, #newfilePath').bind('change', function() {
+      if(allFilled()) $('#btn').removeAttr('disabled');
+  });
 
 function allFilled() {
     var filled = true;
-    $('body input').each(function() {
+    $('#filePath, #newfilePath').each(function() {
         if($(this).val() == '') filled = false;
     });
     return filled;
